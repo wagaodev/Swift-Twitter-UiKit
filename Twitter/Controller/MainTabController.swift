@@ -23,7 +23,11 @@ class MainTabController: UITabBarController {
     // MARK: - Helpers
     
     func configureUI(){
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
+        UINavigationBar.appearance().isTranslucent = false
+        UITabBar.appearance().tintColor = UIColor.systemBlue
+        UITabBar.appearance().backgroundColor = UIColor.systemGray6
+        
         
     }
     
@@ -35,10 +39,10 @@ class MainTabController: UITabBarController {
         let nav2 = templateNavigationController(image: UIImage(named: "search_unselected"), rootViewController: explore)
         
         let notifications = NotificationsController()
-        let nav3 = templateNavigationController(image: UIImage(named: "search_unselected"), rootViewController: notifications)
+        let nav3 = templateNavigationController(image: UIImage(named: "like_unselected"), rootViewController: notifications)
         
         let conversations = ConversationsController()
-        let nav4 = templateNavigationController(image: UIImage(named: "search_unselected"), rootViewController: conversations)
+        let nav4 = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootViewController: conversations)
         
         viewControllers = [nav1, nav2, nav3, nav4]
     }
@@ -47,7 +51,7 @@ class MainTabController: UITabBarController {
     func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = image
-        UINavigationBar.appearance().isTranslucent = false
+   
         return nav
     }
 }
