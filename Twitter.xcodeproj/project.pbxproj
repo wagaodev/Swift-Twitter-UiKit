@@ -17,6 +17,7 @@
 		AB876C8D286A690400E76C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB876C8C286A690400E76C15 /* Assets.xcassets */; };
 		AB876C90286A690400E76C15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB876C8E286A690400E76C15 /* LaunchScreen.storyboard */; };
 		AB876C9E286AA12B00E76C15 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB876C9D286AA12B00E76C15 /* MainTabController.swift */; };
+		ABF8E7CC287FC65F001CCA7F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF8E7CB287FC65F001CCA7F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AB876C8F286A690400E76C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB876C91286A690400E76C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB876C9D286AA12B00E76C15 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		ABF8E7CB287FC65F001CCA7F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		AB876C97286A695700E76C15 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ABF8E7CB287FC65F001CCA7F /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				AB1B28E7286AA7910038BF09 /* NotificationsController.swift in Sources */,
 				AB1B28E9286AA7D80038BF09 /* ConversationsController.swift in Sources */,
 				AB876C84286A690000E76C15 /* AppDelegate.swift in Sources */,
+				ABF8E7CC287FC65F001CCA7F /* Extensions.swift in Sources */,
 				AB1B28E5286AA77F0038BF09 /* ExploreController.swift in Sources */,
 				AB876C86286A690000E76C15 /* SceneDelegate.swift in Sources */,
 				AB876C9E286AA12B00E76C15 /* MainTabController.swift in Sources */,
