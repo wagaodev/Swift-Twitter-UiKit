@@ -14,9 +14,9 @@ class MainTabController: UITabBarController {
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
-        button.backgroundColor = .blue
+        button.backgroundColor = .twitterBlue
         button.setImage(UIImage(named: "new_tweet"), for: .normal)
-        
+        button.addTarget(self, action: #selector(handleActionButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -29,6 +29,12 @@ class MainTabController: UITabBarController {
         
     }
     
+    //MARK: - Selectors
+    
+    @objc func handleActionButtonTapped(){
+        print("DEBUG: Clicou")
+    }
+    
     // MARK: - Helpers
     
     func configureUI(){
@@ -38,7 +44,6 @@ class MainTabController: UITabBarController {
         UITabBar.appearance().backgroundColor = UIColor.systemGray6
         
         view.addSubview(actionButton)
-        actionButton.backgroundColor = .twitterBlue
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
         actionButton.layer.cornerRadius = 56 / 2
         
