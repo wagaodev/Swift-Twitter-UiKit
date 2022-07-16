@@ -49,6 +49,12 @@ class RegistrationController: UIViewController {
         return button
     }()
     
+    private lazy var alreadyHaveAccountButton: UIButton = {
+        let button = Utilities().attributedButton("Already have an account?", " Log In")
+        button.addTarget(self, action: #selector(handleNavigateToLogin), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var emailTextField: UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Email")
         return tf
@@ -89,6 +95,10 @@ class RegistrationController: UIViewController {
         print("DEBUG: Creating account...")
     }
     
+    @objc func handleNavigateToLogin(){
+        print("DEBUG: Navigation to login...")
+    }
+    
     //MARK: - Helpers
     
     func configureUI() {
@@ -108,7 +118,10 @@ class RegistrationController: UIViewController {
         view.addSubview(stack)
         stack.anchor(top: uploadProfilePhoto.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,paddingTop: 20, paddingLeft: 32, paddingRight: 32)
         
-        
+        view.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     right: view.rightAnchor, paddingLeft: 40, paddingBottom: 16,
+                                     paddingRight: 40)
         
         
     }

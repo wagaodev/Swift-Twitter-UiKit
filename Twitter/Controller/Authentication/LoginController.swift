@@ -72,7 +72,8 @@ class LoginController: UIViewController {
     }
     
     @objc func handleCreateAccount(){
-        print("DEBUG: Navigate to another screen...")
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK: - Helpers
