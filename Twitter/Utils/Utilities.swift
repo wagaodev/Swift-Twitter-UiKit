@@ -46,7 +46,7 @@ class Utilities {
         button.setTitle(title, for: .normal)
         button.setTitleColor(.twitterBlue, for: .normal)
         button.backgroundColor = .white
-        button.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.layer.cornerRadius = 25 / 3
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         return button
