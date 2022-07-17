@@ -16,7 +16,14 @@ class FeedController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemRed
+        configureUI()
+    }
+    
+    func configureUI(){
+        view.backgroundColor = .white
+        let iv = UIImageView(image: UIImage(named: "twitter_logo_blue"))
+        iv.contentMode = .scaleAspectFit
+        navigationItem.titleView = iv
     }
     
     // MARK: - Helpers

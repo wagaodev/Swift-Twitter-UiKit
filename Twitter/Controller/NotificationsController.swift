@@ -16,7 +16,13 @@ class NotificationsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemCyan
+        configureUI()
+    }
+    
+    func configureUI(){
+        view.backgroundColor = .white
+        navigationItem.title = "Notifications"
+      
     }
     
     // MARK: - Helpers

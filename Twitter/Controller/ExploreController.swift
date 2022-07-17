@@ -16,9 +16,13 @@ class ExploreController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBlue
+        configureUI()
     }
     
+    func configureUI(){
+        view.backgroundColor = .white
+        navigationItem.title = "Explore"
+    }
     // MARK: - Helpers
     
 }
