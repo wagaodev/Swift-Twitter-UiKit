@@ -38,7 +38,7 @@ class Utilities {
         tf.autocorrectionType = .no
         tf.font = UIFont.systemFont(ofSize: 16)
         tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
+        tf.textContentType = .oneTimeCode
         return tf
     }
     
