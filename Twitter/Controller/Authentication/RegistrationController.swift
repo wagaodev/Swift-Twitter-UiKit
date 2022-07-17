@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
@@ -45,9 +46,9 @@ class RegistrationController: UIViewController {
         return view
     }()
     
-    private lazy var createAccountButton: UIButton = {
+    private lazy var registrationButton: UIButton = {
         let button = Utilities().loginButton(withTitle: "Sign Up")
-        button.addTarget(self, action: #selector(handleCreateAccount), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
         return button
     }()
     
@@ -93,8 +94,17 @@ class RegistrationController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @objc func handleCreateAccount(){
-        print("DEBUG: Creating account...")
+    @objc func handleRegistration(){
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Error is \(error.localizedDescription)")
+                return
+            }
+            print("DEBUG: Successfully registered user")
+        }
     }
     
     @objc func handleNavigateToLogin(){
@@ -119,7 +129,7 @@ class RegistrationController: UIViewController {
         
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView,
                                                   fullnameContainerView, usernameContainerView,
-                                                  createAccountButton])
+                                                  registrationButton])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually

@@ -35,6 +35,7 @@ class Utilities {
         tf.placeholder = placeholder
         tf.textColor = .white
         tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         tf.font = UIFont.systemFont(ofSize: 16)
         tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
