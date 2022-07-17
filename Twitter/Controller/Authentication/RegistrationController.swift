@@ -11,6 +11,8 @@ class RegistrationController: UIViewController {
     
     //MARK: - Properties
     
+    private var imagePicker = UIImagePickerController()
+    
     private lazy var uploadProfilePhoto: UIButton = {
         let button = UIButton(type: .system)
         let image = #imageLiteral(resourceName: "plus_photo").withTintColor(.white, renderingMode: .alwaysOriginal)
@@ -88,7 +90,7 @@ class RegistrationController: UIViewController {
     //MARK: - Selectors
     
     @objc func handleUploadPhoto(){
-        print("DEBUG: Upload photo...")
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @objc func handleCreateAccount(){
@@ -103,6 +105,10 @@ class RegistrationController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .twitterBlue
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
         navigationController?.navigationBar.barStyle = .black
         navigationItem.setHidesBackButton(true, animated: true)
 
@@ -124,7 +130,22 @@ class RegistrationController: UIViewController {
         alreadyHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor,
                                      right: view.rightAnchor, paddingLeft: 40, paddingBottom: 16,
                                      paddingRight: 40)
-        
-        
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate
+
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        uploadProfilePhoto.layer.cornerRadius = 150 / 2
+        uploadProfilePhoto.layer.masksToBounds = true
+        uploadProfilePhoto.imageView?.contentMode = .scaleAspectFill
+        uploadProfilePhoto.imageView?.clipsToBounds = true
+        uploadProfilePhoto.layer.borderColor = #colorLiteral(red: 0.9808574388, green: 1, blue: 0.9557514828, alpha: 1)
+        uploadProfilePhoto.layer.borderWidth = 3
+        self.uploadProfilePhoto.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        dismiss(animated: true, completion: nil)
     }
 }
