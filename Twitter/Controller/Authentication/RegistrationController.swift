@@ -96,7 +96,7 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleNavigateToLogin(){
-        print("DEBUG: Navigation to login...")
+        navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Helpers
@@ -104,6 +104,8 @@ class RegistrationController: UIViewController {
     func configureUI() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
+        navigationItem.setHidesBackButton(true, animated: true)
+
         
         view.addSubview(uploadProfilePhoto)
         uploadProfilePhoto.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
