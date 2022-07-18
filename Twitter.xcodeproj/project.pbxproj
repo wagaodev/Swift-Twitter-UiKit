@@ -13,6 +13,8 @@
 		AB1B28E7286AA7910038BF09 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1B28E6286AA7900038BF09 /* NotificationsController.swift */; };
 		AB1B28E9286AA7D80038BF09 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1B28E8286AA7D80038BF09 /* ConversationsController.swift */; };
 		AB29B3CE2880E0840097BC8D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29B3CD2880E0840097BC8D /* Utilities.swift */; };
+		AB29CBBF2885DC08006EFF41 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29CBBE2885DC08006EFF41 /* UserService.swift */; };
+		AB29CBC12885EF3E006EFF41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29CBC02885EF3E006EFF41 /* User.swift */; };
 		AB2D5FF62884BCED0023676A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D5FF52884BCED0023676A /* Constants.swift */; };
 		AB876C84286A690000E76C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB876C83286A690000E76C15 /* AppDelegate.swift */; };
 		AB876C86286A690000E76C15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB876C85286A690000E76C15 /* SceneDelegate.swift */; };
@@ -35,6 +37,8 @@
 		AB1B28E6286AA7900038BF09 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		AB1B28E8286AA7D80038BF09 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		AB29B3CD2880E0840097BC8D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		AB29CBBE2885DC08006EFF41 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		AB29CBC02885EF3E006EFF41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AB2D5FF52884BCED0023676A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AB876C80286A690000E76C15 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB876C83286A690000E76C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA730C728851571006EFA8D /* AuthService.swift */,
+				AB29CBBE2885DC08006EFF41 /* UserService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 		AB876C9C286A696B00E76C15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB29CBC02885EF3E006EFF41 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB29CBBF2885DC08006EFF41 /* UserService.swift in Sources */,
 				AB1B28E7286AA7910038BF09 /* NotificationsController.swift in Sources */,
 				AB1B28E9286AA7D80038BF09 /* ConversationsController.swift in Sources */,
 				AB29B3CE2880E0840097BC8D /* Utilities.swift in Sources */,
@@ -303,6 +310,7 @@
 				ABF8E7CC287FC65F001CCA7F /* Extensions.swift in Sources */,
 				AB1B28E5286AA77F0038BF09 /* ExploreController.swift in Sources */,
 				ABA730C828851571006EFA8D /* AuthService.swift in Sources */,
+				AB29CBC12885EF3E006EFF41 /* User.swift in Sources */,
 				AB876C86286A690000E76C15 /* SceneDelegate.swift in Sources */,
 				AB876C9E286AA12B00E76C15 /* MainTabController.swift in Sources */,
 				ABF8E7CF287FCF35001CCA7F /* LoginController.swift in Sources */,
