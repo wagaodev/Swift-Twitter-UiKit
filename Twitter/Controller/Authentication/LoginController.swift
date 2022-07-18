@@ -45,7 +45,6 @@ class LoginController: UIViewController {
     
     private lazy var emailTextField: UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Email")
-        tf.autocapitalizationType = .words
         return tf
     }()
     
@@ -68,7 +67,16 @@ class LoginController: UIViewController {
     //MARK: - Selectors
     
     @objc func handleLogin(){
-        print("DEBUG: Deveria ta fazendo o login...")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+
+        AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("DEBUG: Esse é o erro \(error.localizedDescription)")
+                return
+            }
+            print("DEBUG: Successfully...")
+        }
     }
     
     @objc func handleCreateAccount(){
@@ -81,7 +89,6 @@ class LoginController: UIViewController {
     func configureUI() {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
-                
         view.addSubview(logoImageView)
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         logoImageView.setDimensions(width: 150, height: 150)
