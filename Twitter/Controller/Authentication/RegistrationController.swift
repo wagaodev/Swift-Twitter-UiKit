@@ -110,16 +110,27 @@ class RegistrationController: UIViewController {
         let storageRef = STORAGE_PROFILE_IMAGES.child(filename)
         
         
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if let error = error {
-                print("DEBUG: Error is \(error.localizedDescription)")
-                return
-            }
-            guard let uid = result?.user.uid else { return }
-            let values = ["email": email, "username": username, "fullname": fullname]
-            
-            REF_USER.child(uid).updateChildValues(values) { (errors, ref) in
-                print("DEBUG: Successfully updated user information...")
+        storageRef.putData(imageData, metadata: nil) { (meta, error) in
+            storageRef.downloadURL { (url, error) in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                
+                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                    if let error = error {
+                        print("DEBUG: Error is \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let uid = result?.user.uid else { return }
+                    
+                    let values = ["email": email,
+                                  "username": username,
+                                  "fullname": fullname,
+                                  "ProfileImageUrl": profileImageUrl]
+                    
+                    REF_USERS.child(uid).updateChildValues(values) { (errors, ref) in
+                        print("DEBUG: Successfully updated user information...")
+                    }
+                }
             }
         }
     }
@@ -138,15 +149,15 @@ class RegistrationController: UIViewController {
         
         navigationController?.navigationBar.barStyle = .black
         navigationItem.setHidesBackButton(true, animated: true)
-
+        
         
         view.addSubview(uploadProfilePhoto)
         uploadProfilePhoto.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         uploadProfilePhoto.setDimensions(width: 150, height: 150)
         
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView,
-                                                  fullnameContainerView, usernameContainerView,
-                                                  registrationButton])
+                                                   fullnameContainerView, usernameContainerView,
+                                                   registrationButton])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
@@ -155,8 +166,8 @@ class RegistrationController: UIViewController {
         
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                                     right: view.rightAnchor, paddingLeft: 40, paddingBottom: 16,
-                                     paddingRight: 40)
+                                        right: view.rightAnchor, paddingLeft: 40, paddingBottom: 16,
+                                        paddingRight: 40)
     }
 }
 
