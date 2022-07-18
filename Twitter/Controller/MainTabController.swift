@@ -58,7 +58,7 @@ class MainTabController: UITabBarController {
     //MARK: - Selectors
     
     @objc func handleActionButtonTapped(){
-        print("DEBUG: Clicou")
+        print("DEBUG: Clicou...")
     }
     
     // MARK: - Helpers
