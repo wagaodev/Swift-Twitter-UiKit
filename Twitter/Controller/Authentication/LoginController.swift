@@ -54,7 +54,7 @@ class LoginController: UIViewController {
         return tf
     }()
     
-   
+    
     
     //MARK: - Lifecycle
     
@@ -69,13 +69,23 @@ class LoginController: UIViewController {
     @objc func handleLogin(){
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-
+        
         AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("DEBUG: Esse é o erro \(error.localizedDescription)")
                 return
             }
-            print("DEBUG: Successfully...")
+            
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            guard let window = windowScene?.windows.first(where: { $0.isKeyWindow }) else {
+                return }
+            
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
